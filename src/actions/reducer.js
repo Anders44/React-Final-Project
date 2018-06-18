@@ -8,22 +8,35 @@ const initialState = {
         },
         {
             id: 2,
-            name: 'Mom',
-            email: 'mom@gmail.com',
+            name: 'Madison',
+            email: 'mad@gmail.com',
             phone: '307-343-3434',
         },
         {
             id: 3,
-            name: 'Mom',
-            email: 'mom@gmail.com',
+            name: 'Dad',
+            email: 'dad@gmail.com',
             phone: '307-343-3434',
         }
 
-    ]
+    ],
+    name: '',
+    email: '',
+    phone: ''
 
 }       
 
 const reducer = (state=initialState, action) => {
+    switch(action.type) {
+        case 'CHANGE_LIST':
+
+        const listItem = state.list.filter(item => item.id === parseInt(action.id, 10));
+        return {
+            ...state
+        }
+    }
+
+
     return state;
 }
 

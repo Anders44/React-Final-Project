@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect} from 'react-redux';
+import {Link} from 'react-router-dom';
 
 const style = {
     styleContact: {
@@ -11,11 +12,13 @@ const style = {
 const contact_person = props => {
     const list = props.myList.map(item => {
         return (
-            <div key={item.id} style={style.styleContact}>
-                <p><span>Name: </span>{item.name}</p>
-                <p><span>Email: </span>{item.email}</p>
-                <p><span>Phone: </span>{item.phone}</p>
-            </div>    
+            <Link to={`${item.id}`} key={item.id} style={{textDecoration: 'none'}}>
+                <div style={style.styleContact}>
+                    <p><span>Name: </span>{item.name}</p>
+                    <p><span>Email: </span>{item.email}</p>
+                    <p><span>Phone: </span>{item.phone}</p>
+                </div>
+            </Link>    
         );
     });
     return <div>{list}</div>
